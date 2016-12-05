@@ -1,12 +1,3 @@
-/**
- * 工程名: FengDuLibs
- * 文件名: MyFragmentAdapter.java
- * 包名: com.fengdu.ui.adapter
- * 日期: 2015年11月12日下午3:54:14
- * QQ: 378640336
- *
-*/
-
 package com.glen.news.adapter;
 
 import android.support.v4.app.Fragment;

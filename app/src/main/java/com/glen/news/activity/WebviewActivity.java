@@ -6,9 +6,11 @@ import android.os.Build;
 import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.View;
+import android.webkit.WebChromeClient;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.glen.news.R;
@@ -22,6 +24,7 @@ public class WebviewActivity extends BaseActivity implements View.OnClickListene
 
     private String url;
     private String titleStr;
+    private ProgressBar mProgressBar; //webView进度条
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,9 +45,31 @@ public class WebviewActivity extends BaseActivity implements View.OnClickListene
         }
 
         findViewById(R.id.btn_back).setOnClickListener(this);
+        mProgressBar = (ProgressBar)findViewById(R.id.myProgressBar);
+
+        //获取页面中的title
+        WebChromeClient wvcc = new WebChromeClient() {
+            @Override
+            public void onReceivedTitle(WebView view, String title) {
+                super.onReceivedTitle(view, title);
+                String titles = title;
+            }
+            @Override
+            public void onProgressChanged(WebView view, int newProgress) {
+                super.onProgressChanged(view, newProgress);
+                if(newProgress==100){
+                    mProgressBar.setVisibility(View.INVISIBLE);
+                }else {
+                    if(View.INVISIBLE==mProgressBar.getVisibility()){
+                        mProgressBar.setVisibility(View.VISIBLE);
+                    }
+                    mProgressBar.setProgress(newProgress);
+                }
+            }
+        };
 
         webview = (WebView) findViewById(R.id.webview);
-        //webview.setWebChromeClient(wvcc);//负责显示页面title
+        webview.setWebChromeClient(wvcc);
         webview.loadUrl(url);
         //webview.addJavascriptInterface(this, "Koolearn");
         webview.setBackgroundColor(Color.parseColor("#00000000"));

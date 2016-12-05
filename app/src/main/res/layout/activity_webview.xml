@@ -7,6 +7,14 @@
     <include
         android:id="@+id/header"
         layout="@layout/include_head_layout"/>
+    <ProgressBar
+        android:id="@+id/myProgressBar"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="match_parent"
+        android:layout_height="1.5dp"
+        android:indeterminateOnly="false"
+        android:max="100"
+        android:progressDrawable="@drawable/progress_style" />
 
     <WebView
         android:id="@+id/webview"

@@ -16,4 +16,9 @@
     <color name="bg_title">#f9f9f9</color>
     <color name="color_head_line">#b2b2b2</color>
 
+    <!--WebView进度条颜色-->
+    <color name="progress_background_color">#d8d8d8</color>
+    <color name="progress_second_color">#E8374A</color>
+    <color name="progress_progress_color">#56abe4</color>
+
 </resources>
