@@ -4,6 +4,8 @@ import java.io.Serializable;
 
 /**
  * Created by glen on 2016/11/23.
+ *
+ * 新闻列表实体
  */
 
 public class CellDataNews implements Serializable{

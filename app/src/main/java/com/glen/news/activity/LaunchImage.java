@@ -13,7 +13,8 @@ public class LaunchImage extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_launch_image);
 
-        final Intent intent = new Intent(this , ListNews.class);
+//        final Intent intent = new Intent(this , ListNews.class);
+        final Intent intent = new Intent(this , NewsListActivity.class);
         Handler hd = new Handler();
         hd.postDelayed(new Runnable() {
             @Override

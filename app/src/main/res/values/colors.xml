@@ -3,6 +3,13 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+    <!--基础色-->
+    <color name="tran">#00000000</color>
+    <color name="white">#FFFFFF</color>
+    <color name="half_white">#0aFFFFFF</color>
+    <color name="gray">#8f8f8f</color>
+    <color name="color_green">#18bda4</color>
+    <color name="color_txt_black">#434343</color>
 
     <!--标题栏-->
     <color name="font_title">#434343</color>

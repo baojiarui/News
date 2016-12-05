@@ -35,7 +35,7 @@
 
     <!-- 标题返回按钮 -->
     <style name="TitleBackButton">
-        <item name="android:src">@drawable/public_login_btn_back_selector</item>
+        <item name="android:src">@drawable/btn_back_selector</item>
         <item name="android:layout_height">match_parent</item>
         <item name="android:layout_width">wrap_content</item>
         <item name="android:minWidth">40dp</item>
@@ -43,6 +43,11 @@
         <item name="android:layout_centerVertical">true</item>
         <item name="android:layout_marginRight">@dimen/activity_horizontal_margin</item>
         <item name="android:clickable">true</item>
+    </style>
+
+    <!-- 自定义ProgressBar -->
+    <style name="CustomProgressBarStyle">
+        <item name="android:indeterminateDrawable">@drawable/progress_dialog_large</item>
     </style>
 
 </resources>
