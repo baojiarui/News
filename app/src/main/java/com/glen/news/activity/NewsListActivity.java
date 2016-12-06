@@ -19,6 +19,7 @@ import com.glen.news.R;
 import com.glen.news.adapter.MyFragmentAdapter;
 import com.glen.news.entity.Category;
 import com.glen.news.fragment.NewsListFragment;
+import com.glen.news.utils.Utils;
 
 import java.util.ArrayList;
 
@@ -115,7 +116,7 @@ public class NewsListActivity extends FragmentActivity implements View.OnClickLi
                 view.setTextColor(getResources().getColor(R.color.color_txt_black));
             }
 //            int itemWidth = (int) (view.getPaint().measureText(categorys.get(i).getName())+getResources().getDimension(R.dimen.x30));
-            int itemWidth = (int) (view.getPaint().measureText(categorys.get(i).getName())+40);//garry
+            int itemWidth = (int) (view.getPaint().measureText(categorys.get(i).getName())+ Utils.dip2px(this, 15));//garry
             RelativeLayout.LayoutParams params =  new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT, RelativeLayout.LayoutParams.MATCH_PARENT);
             params.addRule(RelativeLayout.CENTER_IN_PARENT);
             layout.addView(view,0, params);
@@ -125,7 +126,7 @@ public class NewsListActivity extends FragmentActivity implements View.OnClickLi
                 mImageView.setVisibility(View.INVISIBLE);
             }
 //            mLinearLayout.addView(layout, itemWidth, (int)getResources().getDimension(R.dimen.x105));
-            mLinearLayout.addView(layout, itemWidth, 100);//garry
+            mLinearLayout.addView(layout, itemWidth, Utils.dip2px(this, 40));//garry
             layout.setOnClickListener(this);
             layout.setTag(i);
         }

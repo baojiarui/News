@@ -1,17 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_launch_image"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activity.LaunchImage"
+    tools:context=".activity.LaunchImage">
 
-    >
-    <ImageView
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/launchImage"
-        android:background="@mipmap/launch_bg"
-        />
+        android:layout_height="match_parent">
+        <ImageView
+            android:id="@+id/launchImage"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@mipmap/launch_bg" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:textSize="40sp"
+            android:textStyle="italic"
+            android:textColor="#f1f1f1"
+            android:text="NEWS"/>
+    </FrameLayout>
+
 </LinearLayout>

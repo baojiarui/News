@@ -15,7 +15,7 @@ import com.glen.news.R;
 import com.glen.news.activity.WebviewActivity;
 import com.glen.news.adapter.AdapterNews;
 import com.glen.news.entity.CellDataNews;
-import com.glen.news.utils.Util;
+import com.glen.news.utils.Utils;
 import com.glen.news.view.pulltorefresh.XListView;
 
 import java.util.ArrayList;
@@ -74,7 +74,7 @@ public class NewsListFragment extends Fragment implements XListView.IXListViewLi
         listview.setPullLoadEnable(false);
         listview.setAutoLoadEnable(false);
         listview.setXListViewListener(this);
-        listview.setRefreshTime(Util.getTime());
+        listview.setRefreshTime(Utils.getTime());
         listview.setOnItemClickListener(this);
         /*if (getUserVisibleHint()) {
             isFirstVisible = false;
@@ -126,16 +126,16 @@ public class NewsListFragment extends Fragment implements XListView.IXListViewLi
      */
     public void requestData(){
         final ArrayList<CellDataNews> temps = new ArrayList<>();
-        temps.add(new CellDataNews("标题","新华社","2016-12-01",R.drawable.dimg, "http://3g.163.com/touch/article.html?channel=news&child=all&offset=1&docid=C7HJVFA70001875N"));
-        temps.add(new CellDataNews("标题标题","新京报","2016-12-01",R.drawable.dimg, "http://m.sohu.com/n/474915829/?wscrid=164_5"));
-        temps.add(new CellDataNews("标题标题标题","今晚报","2016-12-01",R.drawable.dimg, "http://m.sohu.com/n/474596059/?wscrid=37504_2"));
-        temps.add(new CellDataNews("标题标题标题标题","羊城晚报","2016-12-01",R.drawable.dimg, "http://3g.163.com/touch/article.html?channel=news&child=all&offset=13&docid=C7HCRJQM0001899N"));
-        temps.add(new CellDataNews("标题标题标题标题标题","今日头条","2016-12-01",R.drawable.dimg, "http://m.sohu.com/n/557064309/?wscrid=1140_6"));
-        temps.add(new CellDataNews("标题标题标题标题标题标题","简书","2016-12-01",R.drawable.dimg, "http://m.sohu.com/n/557064305/?wscrid=1140_8"));
-        temps.add(new CellDataNews("标题标题标题标题标题标题标题","中央电视台","2016-12-01",R.drawable.dimg, "https://m.baidu.com/"));
+        temps.add(new CellDataNews("洞庭湖网围打响“拆网之战”","新京报","2016-12-01",R.drawable.dimg, "http://www.bjnews.com.cn/news/2016/12/05/425964.html"));
+        temps.add(new CellDataNews("全国铁路实行新列车运行图","新华社","2016-12-01",R.drawable.dimg, "http://3g.163.com/touch/article.html?channel=news&child=all&offset=1&docid=C7HJVFA70001875N"));
+        temps.add(new CellDataNews("美元涨势正在枯竭","新京报","2016-12-01",R.drawable.dimg, "http://m.sohu.com/n/474915829/?wscrid=164_5"));
+        temps.add(new CellDataNews("没有中国特朗普无法伟大","今晚报","2016-12-01",R.drawable.dimg, "http://m.sohu.com/n/474596059/?wscrid=37504_2"));
+        temps.add(new CellDataNews("大学室友为份子钱险翻脸","羊城晚报","2016-12-01",R.drawable.dimg, "http://3g.163.com/touch/article.html?channel=news&child=all&offset=13&docid=C7HCRJQM0001899N"));
+        temps.add(new CellDataNews("39批次手机上黑帮","今日头条","2016-12-01",R.drawable.dimg, "http://m.sohu.com/n/557064309/?wscrid=1140_6"));
+        temps.add(new CellDataNews("楼市正进行一场大清洗","简书","2016-12-01",R.drawable.dimg, "http://m.sohu.com/n/557064305/?wscrid=1140_8"));
+        temps.add(new CellDataNews("24小时国内要闻TOP10：深港通今日开通","新华社","2016-12-01",R.drawable.dimg, "http://news.xinhuanet.com/politics/2016-12/05/c_1120057127.htm"));
+        temps.add(new CellDataNews("百度百度百度百度","中央电视台","2016-12-01",R.drawable.dimg, "https://m.baidu.com/"));
         temps.add(new CellDataNews("标题标题标题标题标题标题标题标题","北京电视台","2016-12-01",R.drawable.dimg, "https://m.baidu.com/"));
-        temps.add(new CellDataNews("标题标题标题标题标题标题标题标题标题","天津电视台","2016-12-01",R.drawable.dimg, "https://m.baidu.com/"));
-        temps.add(new CellDataNews("标题标题标题标题标题标题标题标题标题标题", "上海电视台", "2016-12-01", R.drawable.dimg, "https://m.baidu.com/"));
 
         new Handler().postDelayed(new Runnable() {
             @Override
@@ -191,7 +191,7 @@ public class NewsListFragment extends Fragment implements XListView.IXListViewLi
         }
         listview.stopLoadMore();
         listview.stopRefresh();
-        listview.setRefreshTime(Util.getTime());
+        listview.setRefreshTime(Utils.getTime());
         if (temps != null) {
             if (pageNo == 0) {    // 下拉刷新 或者 初次加载
                 datas.clear();
