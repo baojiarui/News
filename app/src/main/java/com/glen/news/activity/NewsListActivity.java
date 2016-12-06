@@ -1,6 +1,8 @@
 package com.glen.news.activity;
 
 
+import android.animation.AnimatorSet;
+import android.animation.ObjectAnimator;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
@@ -9,6 +11,7 @@ import android.util.DisplayMetrics;
 import android.util.TypedValue;
 import android.view.Gravity;
 import android.view.View;
+import android.view.animation.Animation;
 import android.widget.HorizontalScrollView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -111,7 +114,8 @@ public class NewsListActivity extends FragmentActivity implements View.OnClickLi
             view.setTextSize(TypedValue.COMPLEX_UNIT_PX,getResources().getDimensionPixelOffset(R.dimen.font_15));
             view.setGravity(Gravity.CENTER);
             if(i==0){
-                view.setTextColor(getResources().getColor(R.color.color_green));
+                view.setTextColor(getResources().getColor(R.color.color_blue));
+                animationScale(view, true);
             }else{
                 view.setTextColor(getResources().getColor(R.color.color_txt_black));
             }
@@ -169,14 +173,43 @@ public class NewsListActivity extends FragmentActivity implements View.OnClickLi
     @Override
     public void onPageSelected(int position) {
         RelativeLayout rel = (RelativeLayout)mLinearLayout.getChildAt(currentFragmentIndex);
-        ((TextView)rel.getChildAt(0)).setTextColor(getResources().getColor(R.color.color_txt_black));
+        TextView tv1 = ((TextView) rel.getChildAt(0));
+        tv1.setTextColor(getResources().getColor(R.color.color_txt_black));
+        animationScale(tv1, false);
         currentFragmentIndex = position;
+
         RelativeLayout rel2 = (RelativeLayout)mLinearLayout.getChildAt(currentFragmentIndex);
-        ((TextView)rel2.getChildAt(0)).setTextColor(getResources().getColor(R.color.color_green));
+        TextView tv2 = ((TextView)rel2.getChildAt(0));
+        tv2.setTextColor(getResources().getColor(R.color.color_blue));
+        animationScale(tv2, true);
+
         int scrollX = 0;
         for(int i = 0 ;i < currentFragmentIndex;i++){
             scrollX += mLinearLayout.getChildAt(i).getWidth();
         }
         mHorizontalScrollView.smoothScrollTo(scrollX, 0);
+    }
+
+    /**
+     * 分类标题选中动画
+     * @param target 动画控件
+     * @param isSelected 控件是否被选中
+     */
+    private void animationScale(Object target, boolean isSelected){
+        ObjectAnimator scaleX;
+        ObjectAnimator scaleY;
+        if(isSelected){
+            scaleX = ObjectAnimator.ofFloat(target, "scaleX", 1.0f, 1.2f);
+            scaleY = ObjectAnimator.ofFloat(target, "scaleY", 1.0f, 1.2f);
+        }else{
+            scaleX = ObjectAnimator.ofFloat(target, "scaleX", 1.2f, 1.0f);
+            scaleY = ObjectAnimator.ofFloat(target, "scaleY", 1.2f, 1.0f);
+        }
+        AnimatorSet animSet = new AnimatorSet();
+        animSet.play(scaleX).with(scaleY);
+        animSet.setDuration(300);
+        animSet.start();
+
+
     }
 }
